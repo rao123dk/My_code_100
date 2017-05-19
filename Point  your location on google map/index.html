@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <title>Point  your location on google map</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<p>By default It will show the current location</p>
+<input type="text" id="show_by_search" placeholder="Enter city name" class="resizedTextbox">
+<button onclick="showBySearch()" id="show_Now" class="btnsize">Search</button></br></br></br>
+<button value="ROADMAP" class="mapType">ROADMAP</button>
+<button value="SATELLITE" class="mapType">SATELLITE</button>
+<button value="HYBRID" class="mapType">HYBRID</button>
+<button value="TERRAIN" class="mapType">TERRAIN</button>
+<br/>
+
+<div>
+	<div id="googleMap" style="width:400px;height:300px;"></div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="app.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABIxSC51OomWmrP3cKt0XVj_-6oT9DSFw&callback=myMap"></script>
+</script>
+</body>
+</html>
