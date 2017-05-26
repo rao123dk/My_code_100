@@ -1,0 +1,77 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>flickr photos search</h1>
+<h2>find pictures that folks have taken near you</h2>
+Your latitude<p id="latitude"></p>
+your longitude<p id="longitude"></p>
+<div id="pictures">
+
+</div>
+
+
+
+<script>
+
+window.onload = getPictures();
+
+function getPictures() {
+//var latitude;
+//var longitude;
+   var Your_API_Key ="93015aa016b0faf17e9d413401bec9e7";
+    $('#pictures').empty();
+navigator.geolocation.getCurrentPosition(getLatitueAndLongitude, error,options);
+function getLatitueAndLongitude(Position){
+            var latitude = Position.coords.latitude;
+            var longitude = Position.coords.longitude;
+            $("#latitude").html(latitude);
+            $("#longitude").html(longitude);
+            showImages(latitude,longitude);
+}
+
+function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+};
+var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+};
+    
+
+// due to some location error hard code latitude and longtitude
+//28.5602800 //77.2913320
+//28.536796 // 77.269212
+function showImages (latitude,longitude){
+
+      var queryString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=93015aa016b0faf17e9d413401bec9e7&lat="+ latitude + "&lon=" + longitude + "&format=json&jsoncallback=?";
+
+    $.getJSON(queryString, function (results) {
+    //console.log(latitude); 
+    //console.log(longitude);
+    console.log(results);
+        $.each(results.photos.photo, function (index, item) {
+
+            var photoURL = "http://farm" + item.farm + ".static.flickr.com/" +
+                item.server + "/" + item.id + "_" + item.secret + "_m.jpg";
+            //console.log(photoURL);
+            
+            var img = $('<img id="dynamic">'); 
+             img.attr('src', photoURL);
+              img.appendTo('#pictures');
+           });
+        }
+    );
+}
+  
+    
+    
+}
+
+
+ 
+</script>
+</body>
+</html>
