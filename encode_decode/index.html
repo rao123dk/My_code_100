@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Abel';font-size: 22px;
+}
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Encode-Decode
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="encode">
+<p>Enter here</p>
+    <textarea rows="4" cols="60" id="encode_area" onblur="encode()">
+    </textarea>
+    <p>Your Secret Message is :-</p>
+    <i id="secret_message"></i><button onclick="copyToClipboard('#secret_message')">Copy</button>
+</div>
+<hr/>
+<div class="decode">
+<p>Want to decode ? Enter below</p>
+<input type="text" id="decode_area" onblur="decode()"><br/>
+<p>Your Public Message is:- </p><br/>
+<i id="public_message"></i>
+</div>
+    
+
+</div>
+<script type="text/javascript" src="encode_decode.js"></script>
+</body>
+</html>
