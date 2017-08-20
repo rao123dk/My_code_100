@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	p Hello by layout
+	span.my_info My local IP address:-
+	span #{data_data[0]}
+	br
+	span.my_info My Public IP address: 
+	span #{data_data[1]}
+	br
+	span.my_info My Internet download speed:
+	span #{data_data[2]['speeds']['download']} KB/s
+	br
+	span.my_info My Internet upload speed:
+	span #{data_data[2]['speeds']['upload']} KB/s
+	br
+	span.my_info ISP:
+	span #{data_data[2]['client']['isp']} 
+	br
+	span.my_info Location:
+	span #{data_data[2]['server']['location']} 
+	br
+	span.my_info sponsor:
+	span #{data_data[2]['server']['sponsor']} 
+	br
+	span.my_info Host:
+	span #{data_data[2]['server']['host']} 
+	br
+
+
+	
